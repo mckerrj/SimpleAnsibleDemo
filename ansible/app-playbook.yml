@@ -1,0 +1,11 @@
+---
+- hosts: app
+  become: yes
+  tasks:
+  - name: mysql-python via yum
+    yum: name=MySQL-python state=present
+  - name: python setup tools via yum
+    yum: name=python-setuptools state=present
+  - name: install DJango via Easy Install (since it's not in Centos) 
+    easy_install: name=django state=present
+
